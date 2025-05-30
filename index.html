@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>방탈출 메인페이지</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="game.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>탈출 게임</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- 게임 제목 -->
-    <div class="gametitle">
-        <p>게임</p>
+  <div id="main-screen">
+    <h1>탈출 게임</h1>
+    <button id="start-btn">시작하기</button>
+    <button id="howtoplay-btn">설명보기</button>
+  </div>
+
+  <div id="game-screen" style="display:none;">
+    <img id="room-image" src="files/room_labroom.png" alt="게임 배경" />
+
+    <div id="locked">
+      <img src="files/자물쇠.png" alt="자물쇠">
     </div>
 
-    <!-- 시작하기 버튼 -->
-    <div class="start">
-        <a href="sub1/sub1.html">시작하기</a>
-    </div>
+    <!-- 방향 화살표 -->
+    <div id="arrow-up" class="arrow">▲</div>
+    <div id="arrow-left" class="arrow">◀</div>
+    <div id="arrow-right" class="arrow">▶</div>
+    <div id="arrow-down" class="arrow">▼</div>
 
-    <!-- 게임 설명 버튼 -->
-    <div class="text2">
-        <div class="label_content">
-            <input type="checkbox" id="info">
-            <label for="info">게임 설명</label>
-            <div class="content">
-                <label for="info">x</label>
-                <div id="text">
-                    <p>게임 설명 내용</p>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    <script src="test.js"></script>
+  </div>
+
+  <!-- 설명 이미지 모달 -->
+  <div id="howtoplay-modal" style="display:none;">
+    <img src="files/howtoplay.jpg" alt="게임 설명" />
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
