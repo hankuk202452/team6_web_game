@@ -14,18 +14,31 @@
   </div>
 
   <div id="game-screen" style="display:none;">
-    <img id="room-image" src="files/room_labroom.png" alt="게임 배경" />
+    <div id="game-grid">
+      <img id="room-image" src="files/room_labroom.png" alt="게임 배경" />
 
-    <!-- 방향 화살표 -->
-    <div id="arrow-up" class="arrow">▲</div>
-    <div id="arrow-left" class="arrow">◀</div>
-    <div id="arrow-right" class="arrow">▶</div>
-    <div id="arrow-down" class="arrow">▼</div>
+      <!-- 퍼즐 요소: 컴퓨터 -->
+      <img id="puzzle-computer" class="puzzle" src="files/computer.png" alt="컴퓨터 퍼즐" />
+
+      <!-- 퍼즐 요소: 책 -->
+      <img id="puzzle-book" class="puzzle" src="files/book.png" alt="책 퍼즐" style="display:none;" />
+
+      <!-- 방향 화살표 (game-grid 내부에 넣음) -->
+      <div id="arrow-up" class="arrow">▲</div>
+      <div id="arrow-left" class="arrow">◀</div>
+      <div id="arrow-right" class="arrow">▶</div>
+      <div id="arrow-down" class="arrow">▼</div>
+    </div>
   </div>
 
   <!-- 설명 이미지 모달 -->
-  <div id="howtoplay-modal" style="display:none;">
+  <div id="howtoplay-modal" class="modal" style="display:none;">
     <img src="files/howtoplay.jpg" alt="게임 설명" />
+  </div>
+
+  <!-- 퍼즐 요소 모달 -->
+  <div id="puzzle-modal" class="modal" style="display:none;">
+    <img id="puzzle-modal-img" src="" alt="퍼즐 상세 이미지" />
   </div>
 
   <script src="script.js"></script>

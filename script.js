@@ -11,10 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const arrowRight = document.getElementById("arrow-right");
   const arrowDown = document.getElementById("arrow-down");
 
-  // 방별 이동 경로 (roomId: { 이미지, 연결된 방 })
-  // 연결된 방이 없으면 null 또는 undefined
-  // 좌우상하 순서로 연결 방 명시
-  // 상: up, 하: down, 좌: left, 우: right
+  const puzzleComputer = document.getElementById("puzzle-computer");
+  const puzzleBook = document.getElementById("puzzle-book");
+  const puzzleModal = document.getElementById("puzzle-modal");
+  const puzzleModalImg = document.getElementById("puzzle-modal-img");
+
   const rooms = {
     "labroom": {
       img: "files/room_labroom.png",
@@ -46,10 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // 현재 위치 방 id 저장
   let currentRoomId = "labroom";
 
-  // 시작 버튼 클릭 시 게임 시작
   startBtn.addEventListener("click", () => {
     mainScreen.style.display = "none";
     gameScreen.style.display = "block";
@@ -57,24 +56,36 @@ document.addEventListener("DOMContentLoaded", () => {
     currentRoomId = "labroom";
     updateRoom(currentRoomId);
 
-    // 시작하면 설명 버튼과 모달 제거
     howToPlayBtn.remove();
     howToPlayModal.remove();
   });
 
-  // 설명 버튼 클릭 시
   howToPlayBtn.addEventListener("click", () => {
     howToPlayModal.style.display = "flex";
   });
 
-  // 설명 모달 클릭하면 닫기
   howToPlayModal.addEventListener("click", (event) => {
     if (event.target === howToPlayModal) {
       howToPlayModal.style.display = "none";
     }
   });
 
-  // 방 이동 함수
+  puzzleComputer.addEventListener("click", () => {
+    puzzleModalImg.src = "files/computerfull.png";
+    puzzleModal.style.display = "flex";
+  });
+
+  puzzleBook.addEventListener("click", () => {
+    puzzleModalImg.src = "files/bookfull.png";
+    puzzleModal.style.display = "flex";
+  });
+
+  puzzleModal.addEventListener("click", (event) => {
+    if (event.target === puzzleModal) {
+      puzzleModal.style.display = "none";
+    }
+  });
+
   function updateRoom(roomId) {
     const room = rooms[roomId];
     if (!room) return;
@@ -82,29 +93,27 @@ document.addEventListener("DOMContentLoaded", () => {
     currentRoomId = roomId;
     roomImage.src = room.img;
 
-    // 화살표 표시 업데이트
     arrowUp.style.display = room.up ? "block" : "none";
     arrowDown.style.display = room.down ? "block" : "none";
     arrowLeft.style.display = room.left ? "block" : "none";
     arrowRight.style.display = room.right ? "block" : "none";
+
+    puzzleComputer.style.display = (roomId === "labroom") ? "block" : "none";
+    puzzleBook.style.display = (roomId === "lab") ? "block" : "none";
   }
 
-  // 화살표 클릭 이벤트 등록
   arrowUp.addEventListener("click", () => {
     const nextRoom = rooms[currentRoomId].up;
     if (nextRoom) updateRoom(nextRoom);
   });
-
   arrowDown.addEventListener("click", () => {
     const nextRoom = rooms[currentRoomId].down;
     if (nextRoom) updateRoom(nextRoom);
   });
-
   arrowLeft.addEventListener("click", () => {
     const nextRoom = rooms[currentRoomId].left;
     if (nextRoom) updateRoom(nextRoom);
   });
-
   arrowRight.addEventListener("click", () => {
     const nextRoom = rooms[currentRoomId].right;
     if (nextRoom) updateRoom(nextRoom);

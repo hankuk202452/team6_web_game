@@ -12,7 +12,6 @@ body, html {
   left: 0;
   width: 100vw;
   height: 100vh;
-
   background-image: url("files/startscreen.png");
   background-size: cover;
   background-position: center;
@@ -53,13 +52,45 @@ body, html {
   background-color: black;
 }
 
-#game-screen img {
+#game-grid {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* 상대 위치 유지 */
+}
+
+#room-image {
+  grid-row: 1 / 6;
+  grid-column: 1 / 8;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 1;
 }
 
-/* 화살표 공통 스타일 */
+.puzzle {
+  width: 60px;
+  cursor: pointer;
+  z-index: 2;
+  justify-self: center;
+  align-self: center;
+}
+
+#puzzle-computer {
+  grid-row: 5;
+  grid-column: 4;
+}
+
+#puzzle-book {
+  grid-row: 3;
+  grid-column: 4;
+}
+
+/* 화살표 위치를 game-grid 내부에 맞춰서 절대 위치로 조절 */
+/* grid 위에 떠 있도록 z-index 크게 잡음 */
 .arrow {
   position: absolute;
   font-size: 30px;
@@ -69,32 +100,33 @@ body, html {
   border-radius: 50%;
   cursor: pointer;
   user-select: none;
+  z-index: 10;
 }
 
-/* 각 방향 위치 */
+/* 각 화살표 위치를 game-grid 기준으로 배치 */
 #arrow-up {
-  top: 20px;
+  top: 2%;
   left: 50%;
   transform: translateX(-50%);
 }
 #arrow-down {
-  bottom: 20px;
+  bottom: 2%;
   left: 50%;
   transform: translateX(-50%);
 }
 #arrow-left {
   top: 50%;
-  left: 20px;
+  left: 0.5%;
   transform: translateY(-50%);
 }
 #arrow-right {
   top: 50%;
-  right: 20px;
+  right: 0.5%;
   transform: translateY(-50%);
 }
 
-/* 설명 이미지 모달 */
-#howtoplay-modal {
+/* 모달 공통 */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -107,7 +139,7 @@ body, html {
   z-index: 1000;
 }
 
-#howtoplay-modal img {
+.modal img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 8px;
