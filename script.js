@@ -26,14 +26,28 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     "lab": {
       img: "files/room_lab.png",
-      up: null,
+      up: "lobby",
       down: "labroom",
       left: "storage",
       right: "corridor"
     },
+    "lobby": {
+      img: "files/room_looby.png",
+      up: null,
+      down: "lab",
+      left: null,
+      right: "corner"
+    },
+    "corner": {
+      img: "files/room_corner.png",
+      up: null,
+      down: "corridor",
+      left: "lobby",
+      right: null
+    },
     "corridor": {
       img: "files/room_corridor.png",
-      up: null,
+      up: "corner",
       down: null,
       left: "lab",
       right: null
