@@ -3,27 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>탈출 게임</title>
+  <title>탈출 게임</title> <!-- 사이트 이름 -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="main-screen">
-    <h1>탈출 게임</h1>
+    <h1>탈출 게임</h1> <!-- 게임 제목-->
     <button id="start-btn">시작하기</button>
     <button id="howtoplay-btn">설명보기</button>
   </div>
 
+  <!-- 게임 화면 -->  
   <div id="game-screen" style="display:none;">
     <div id="game-grid">
       <img id="room-image" src="files/room_labroom.png" alt="게임 배경" />
 
-      <!-- 퍼즐 요소: 컴퓨터 -->
+      <!-- 퍼즐 요소 -->
       <img id="puzzle-computer" class="puzzle" src="files/computer.png" alt="컴퓨터 퍼즐" />
-
-      <!-- 퍼즐 요소: 책 -->
       <img id="puzzle-book" class="puzzle" src="files/book.png" alt="책 퍼즐" style="display:none;" />
+      <img id="puzzle-radio" class="puzzle" src="files/radio.png" alt="라디오 퍼즐" style="display:none;" />
+      <img id="puzzle-transparent" class="puzzle" src="files/trasparent.png" alt="투명 퍼즐" style="display:none;" />
 
-      <!-- 방향 화살표 (game-grid 내부에 넣음) -->
+
+
+
+      
+
+      <!-- 방향 화살표 -->
       <div id="arrow-up" class="arrow">▲</div>
       <div id="arrow-left" class="arrow">◀</div>
       <div id="arrow-right" class="arrow">▶</div>
@@ -31,14 +37,32 @@
     </div>
   </div>
 
-  <!-- 설명 이미지 모달 -->
+  <!-- '설명보기' 클릭 후 보여지는 게임 설명 이미지 -->
   <div id="howtoplay-modal" class="modal" style="display:none;">
     <img src="files/howtoplay.jpg" alt="게임 설명" />
   </div>
+  
+  <!-- 힌트나 스토리는 이미지 넣는 게 나을 듯 -->
+  <div id="image-modal" class="modal" style="display:none;">
+    <img id="image-modal-img" src="" alt="퍼즐 이미지(힌트/스토리)" />
+  </div>
 
-  <!-- 퍼즐 요소 모달 -->
+    <!-- 퍼즐 요소 클릭 시 보이는 퍼즐 문제 -->
   <div id="puzzle-modal" class="modal" style="display:none;">
-    <img id="puzzle-modal-img" src="" alt="퍼즐 상세 이미지" />
+    <div id="puzzle-modal-content">
+      <p id="question">문제 내용</p>
+      <img id="puzzle-modal-img" src="" alt="퍼즐 상세 이미지" />
+      <input type="text" id="userAnswer" placeholder="정답을 입력하세요">
+      <button id="checkAnswerBtn">확인</button>
+      <p id="resultMessage"></p> <!-- 정답 결과나 출력값을 여기에 표시 -->
+    </div>
+  </div>
+
+
+  <!-- 게임 오버 -->
+  <div id="game-over-screen" class="modal" style="display:none;">
+    <h1 style="color: white;">GAME OVER</h1>
+    <p style="color: white;">아무 키나 눌러 다시 시작하세요</p>
   </div>
 
   <script src="script.js"></script>

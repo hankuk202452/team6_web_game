@@ -6,7 +6,7 @@ body, html {
   font-family: sans-serif;
 }
 
-#main-screen {
+#main-screen { /* 메인 화면 배경 이미지 */
   position: fixed;
   top: 0;
   left: 0;
@@ -23,13 +23,13 @@ body, html {
   align-items: center;
 }
 
-#main-screen h1 {
+#main-screen h1 { /* 게임 제목 */
   color: white;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
   margin-bottom: 20px;
 }
 
-#main-screen button {
+#main-screen button { /* 시작하기, 설명보기 */
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -41,28 +41,27 @@ body, html {
   transition: background-color 0.3s ease;
 }
 
-#main-screen button:hover {
+#main-screen button:hover { /* 시작하기, 설명보기에 마우스커서 올렸을 때 */
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-#game-screen {
+#game-screen { /* 게임 화면 */
   position: relative;
   width: 100vw;
   height: 100vh;
   background-color: black;
 }
 
-#game-grid {
+#game-grid { /* 그리드, 행렬 5:7 (요소 위치 지정하기 위한 밑작업) */
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
   height: 100%;
   position: relative;
-  /* 상대 위치 유지 */
 }
 
-#room-image {
+#room-image { /* 게임 화면 배경 이미지 */
   grid-row: 1 / 6;
   grid-column: 1 / 8;
   width: 100%;
@@ -71,7 +70,7 @@ body, html {
   z-index: 1;
 }
 
-.puzzle {
+.puzzle { /* 퍼즐 요소 기본 설정 */
   aspect-ratio: 1 / 1;
   width: 200px;
   height: auto;
@@ -82,19 +81,32 @@ body, html {
   align-self: center;
 }
 
-#puzzle-computer {
+#puzzle-computer { /* 퍼즐 요소 : 컴퓨터 */
   grid-row: 5;
   grid-column: 4;
 }
 
-#puzzle-book {
+#puzzle-book { /* 퍼즐 요소 : 책 */
   grid-row: 3;
   grid-column: 4;
 }
 
-/* 화살표 위치를 game-grid 내부에 맞춰서 절대 위치로 조절 */
-/* grid 위에 떠 있도록 z-index 크게 잡음 */
-.arrow {
+#puzzle-radio { /* 퍼즐 요소 : 라디오 */
+  grid-row: 3;
+  grid-column: 5;
+}
+
+#puzzle-transparent {
+  grid-row: 2;
+  grid-column: 4;
+}
+
+
+
+
+
+
+.arrow { /* 화살표 기본 설정 */
   position: absolute;
   font-size: 30px;
   color: white;
@@ -106,7 +118,6 @@ body, html {
   z-index: 10;
 }
 
-/* 각 화살표 위치를 game-grid 기준으로 배치 */
 #arrow-up {
   top: 2%;
   left: 50%;
@@ -128,8 +139,7 @@ body, html {
   transform: translateY(-50%);
 }
 
-/* 모달 공통 */
-.modal {
+.modal { /* 불투명한 검은 가장자리 */
   position: fixed;
   top: 0;
   left: 0;
@@ -142,9 +152,80 @@ body, html {
   z-index: 1000;
 }
 
-.modal img {
-  max-width: 90%;
-  max-height: 90%;
+#howtoplay-modal img { /* 퍼즐 문제 기본 설정 */
+  position: fixed;
+  width: 50vw;
+  /* height: 100px; */
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+/* 힌트/스토리 이미지 모달 이미지 */
+#image-modal-img {
+  max-width: 50vw;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  object-fit: contain;
+}
+
+#puzzle-modal-content { /* 퍼즐 문제 기본 설정 */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 퍼즐 문제 모달 이미지 */
+#puzzle-modal-content img {
+  max-width: 70%;
+  max-height: 300px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+#puzzle-modal-content input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#checkAnswerBtn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#puzzle-modal-content button:hover {
+  background-color: #45a049;
+}
+
+#resultMessage {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+
+#game-over-screen {
+  background-color: rgba(0, 0, 0, 0.95);
+  flex-direction: column;
+  font-size: 2em;
 }
