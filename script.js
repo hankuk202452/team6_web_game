@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     transparent: {
       type: "image",
       image: "files/startscreen.png"
-    }
+
 
     // 추가 퍼즐도 여기에 계속 넣기
     },
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
       answered: false
     }
 
-    
+
     // 추가 퍼즐도 여기에 계속 넣기
 
   };
