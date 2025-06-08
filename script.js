@@ -115,8 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const puzzleBook = document.getElementById("puzzle-book");
   const puzzleRadio = document.getElementById("puzzle-radio");
   const puzzleTransparent = document.getElementById("puzzle-transparent");
+  const puzzleSafe = document.getElementById("puzzle-safe");
+  const puzzleManybooks = document.getElementById("puzzle-manybooks");
   const puzzleClock = document.getElementById("puzzle-clock");
-
 
 
   const puzzles = {
@@ -148,9 +149,24 @@ document.addEventListener("DOMContentLoaded", () => {
       answer: "10",
       success: "'추월'의 의미를 이해하는 것이 어려웠나요?",
       answered: false
-    }
+    },
     // 추가 퍼즐도 여기에 계속 넣기
-
+    safe: {
+      question: "각 문자는 알파벳 숫자들과 대응한다. A = 1, B = 2...일 때, FDHGBWARJ는?",
+    // a1 b2 c3 d4 e5 f6 g7 h8 i9 j10
+    // k11 l12 m13 n14 o15 p16 q17 r18 s19 t20
+    // u21 v22 w23 x24 y25 z26
+      answer: "648722311810",
+      success: "클리어 파일이 여러 개 쌓여 있습니다. 하나를 살펴보면 어떤 실험 보고서 같은데, 대상은 인간이 아닙니다. 그런데 인간보다 지능이 높고 습득력이 강하며, 거의 모든 방면에서 뛰어난 것을 알 수 있습니다.",
+      answered: false
+    },
+    manybooks: {
+      question: "쌓여 있는 책 제목의 첫 글자들만 모아보면?",
+      image: "files/manybooksfull.png",
+      answer: "HUMAN",
+      success: "나는 인간이 아닙니다.",
+      answered: false
+    }
 
 
 
@@ -166,7 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   puzzleClock.addEventListener("click", () => openPuzzle("clock"));
 
-
+  puzzleSafe.addEventListener("click", () => openPuzzle("safe"));
+  puzzleManybooks.addEventListener("click", () => openPuzzle("manybooks"));
 
 
 
@@ -301,12 +318,9 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleBook.style.display = (roomId === "lab") ? "block" : "none";
     puzzleRadio.style.display = (roomId === "lab") ? "block" : "none";
     puzzleTransparent.style.display = (roomId === "lab") ? "block" : "none";
+    puzzleSafe.style.display = (roomId === "storage") ? "block" : "none";
+    puzzleManybooks.style.display = (roomId === "lobby") ? "block" : "none";
     puzzleClock.style.display = (roomId === "corner") ? "block" : "none";
-
-    
-
-
-
   }
 
 

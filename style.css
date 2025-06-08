@@ -101,6 +101,21 @@ body, html {
   grid-column: 4;
 }
 
+#puzzle-safe {
+  grid-row: 3;
+  grid-column: 3;
+  position: inherit;
+  left: -10%;
+  bottom: -20%;
+}
+
+#puzzle-manybooks {
+  grid-row: 3;
+  grid-column: 3;
+  position: inherit;
+  right: -50%;
+  bottom: -35%;
+}
 
 /* corner 퍼즐 */
 #puzzle-clock { /* 퍼즐 요소 : 시계 */
@@ -108,7 +123,6 @@ body, html {
   grid-column: 4;
   transform: scale(0.5); 
 }
-
 
 
 .arrow { /* 화살표 기본 설정 */
@@ -166,6 +180,7 @@ body, html {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  border-radius: 8px;
 }
 
 
@@ -181,10 +196,10 @@ body, html {
 
 #puzzle-modal-content { /* 퍼즐 문제 기본 설정 */
   background: white;
-  padding: 20px;
+  padding: 70px;
   border-radius: 10px;
-  width: 50vw;
-  height: 60vh;
+  width: 40vw;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -211,7 +226,7 @@ body, html {
 
 #checkAnswerBtn {
   padding: 10px 20px;
-  background-color: #4CAF50;
+  background-color: #4c6baf;
   color: white;
   border: none;
   border-radius: 5px;
@@ -220,7 +235,7 @@ body, html {
 }
 
 #puzzle-modal-content button:hover {
-  background-color: #45a049;
+  background-color: #4c6baf;
 }
 
 #resultMessage {
