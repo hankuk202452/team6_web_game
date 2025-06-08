@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       right: "corridor"
     },
     "lobby": {
-      img: "files/room_looby.png",
+      img: "files/room_lobby.png",
       up: null,
       down: "lab",
       left: null,
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const puzzleBook = document.getElementById("puzzle-book");
   const puzzleRadio = document.getElementById("puzzle-radio");
   const puzzleTransparent = document.getElementById("puzzle-transparent");
-
+  const puzzleClock = document.getElementById("puzzle-clock");
 
 
 
@@ -141,6 +141,13 @@ document.addEventListener("DOMContentLoaded", () => {
     transparent: {
       type: "image",
       image: "files/startscreen.png"
+    },
+    clock: {
+      question: "문제: 12시 정각부터 12시간 후의 12시 정각 사이에 긴 바늘이 짧은 바늘을 앞지르는 것은 총 몇 번일까?",
+      image: "files/clock.png",
+      answer: "10",
+      success: "'추월'의 의미를 이해하는 것이 어려웠나요?",
+      answered: false
     }
     // 추가 퍼즐도 여기에 계속 넣기
 
@@ -157,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
   puzzleTransparent.addEventListener("click", () => {
     triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
   });
+  puzzleClock.addEventListener("click", () => openPuzzle("clock"));
 
 
 
@@ -293,8 +301,9 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleBook.style.display = (roomId === "lab") ? "block" : "none";
     puzzleRadio.style.display = (roomId === "lab") ? "block" : "none";
     puzzleTransparent.style.display = (roomId === "lab") ? "block" : "none";
+    puzzleClock.style.display = (roomId === "corner") ? "block" : "none";
 
-
+    
 
 
 

@@ -102,7 +102,12 @@ body, html {
 }
 
 
-
+/* corner 퍼즐 */
+#puzzle-clock { /* 퍼즐 요소 : 시계 */
+  grid-row: 2;
+  grid-column: 4;
+  transform: scale(0.5); 
+}
 
 
 
