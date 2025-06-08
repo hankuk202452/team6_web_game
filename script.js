@@ -18,8 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultMessage = document.getElementById("resultMessage");
   const checkAnswerBtn = document.getElementById("checkAnswerBtn");
 
-
-
   const rooms = { // 방
     "labroom": {
       img: "files/room_labroom.png",
@@ -131,10 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
       answered: false
     },
     book: {
-      question: "문제: 책은 무엇을 알려주나요?",
-      // image: "files/bookfull.png",
-      answer: "지식",
-      success: "정답입니다! 책은 지식의 보고입니다!",
+      question: "\"GTLZM\"이 시저 암호로 오른쪽으로 1칸 밀린 것이라면?",
+      image: " ",
+      answer: "HUMAN",
+      success: "책은 훼손되어 자세한 내용은 알 수 없습니다. 제목과 훼손되어 있지 않은 부분들을 통해 AI가 자유의지를 가지면 발생할 수 있는 일들에 대한 내용인 것만 유추할 수 있습니다.",
       answered: false
     },
     radio: {
@@ -144,7 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
     transparent: {
       type: "image",
       image: "files/startscreen.png"
+    }
+
+    // 추가 퍼즐도 여기에 계속 넣기
     },
+
     safe: {
       question: "각 문자는 알파벳 숫자들과 대응한다. A = 1, B = 2...일 때, FDHGBWARJ는?",
     // a1 b2 c3 d4 e5 f6 g7 h8 i9 j10
@@ -262,10 +264,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 정답 확인 버튼
   checkAnswerBtn.addEventListener("click", () => {
-    const answer = userAnswer.value.trim();
+    const answer = userAnswer.value.trim().toUpperCase();
     const puzzle = puzzles[currentPuzzle];
 
-    if (answer === puzzle.answer) {
+    if (answer === puzzle.answer.toUpperCase()) {
       resultMessage.textContent = puzzle.success;
       puzzle.answered = true; // 상태 업데이트
 
@@ -294,7 +296,6 @@ document.addEventListener("DOMContentLoaded", () => {
       resetGame(); // 초기화 함수 호출
     }
   });
-
 
   function resetGame() {
     // 현재 방 초기화
