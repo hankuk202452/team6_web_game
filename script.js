@@ -115,11 +115,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const puzzleBook = document.getElementById("puzzle-book");
   const puzzleRadio = document.getElementById("puzzle-radio");
   const puzzleTransparent = document.getElementById("puzzle-transparent");
-
   const puzzleSafe = document.getElementById("puzzle-safe");
   const puzzleManybooks = document.getElementById("puzzle-manybooks");
 
-
+  const puzzleClock = document.getElementById("puzzle-clock");
+  const puzzlePapers = document.getElementById("puzzle-papers");
+  const puzzlePC = document.getElementById("puzzle-pc");
 
   const puzzles = {
     computer: {
@@ -143,8 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     transparent: {
       type: "image",
       image: "files/startscreen.png"
-    }
-    // 추가 퍼즐도 여기에 계속 넣기
+    },
     safe: {
       question: "각 문자는 알파벳 숫자들과 대응한다. A = 1, B = 2...일 때, FDHGBWARJ는?",
     // a1 b2 c3 d4 e5 f6 g7 h8 i9 j10
@@ -160,9 +160,28 @@ document.addEventListener("DOMContentLoaded", () => {
       answer: "HUMAN",
       success: "나는 인간이 아닙니다.",
       answered: false
+    },
+    clock: {
+      question: "문제: 12시 정각부터 12시간 후의 12시 정각 사이에 긴 바늘이 짧은 바늘을 앞지르는 것은 총 몇 번일까?",
+      image: "files/clock.png",
+      answer: "10",
+      success: "'추월'의 의미를 이해하는 것이 어려웠나요?",
+      answered: false
+    },
+    papers: {
+      type: "image",
+      image: "files/papersfull.png",
+    },
+    pc: {
+      question: "문제: 사랑이란 무엇입니까?",
+      image: "files/PCfull.png",
+      answer: "13",
+      success: "인간은 보이지 않는 건 모릅니다.",
+      answered: false
     }
 
-
+    
+    // 추가 퍼즐도 여기에 계속 넣기
 
   };
 
@@ -174,11 +193,12 @@ document.addEventListener("DOMContentLoaded", () => {
   puzzleTransparent.addEventListener("click", () => {
     triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
   });
-
   puzzleSafe.addEventListener("click", () => openPuzzle("safe"));
   puzzleManybooks.addEventListener("click", () => openPuzzle("manybooks"));
 
-
+  puzzleClock.addEventListener("click", () => openPuzzle("clock"));
+  puzzlePapers.addEventListener("click", () => openPuzzle("papers"));
+  puzzlePC.addEventListener("click", () => openPuzzle("pc"));
 
 
 
@@ -230,6 +250,12 @@ document.addEventListener("DOMContentLoaded", () => {
       userAnswer.value = "";
       userAnswer.disabled = false;
       checkAnswerBtn.disabled = false;
+    }
+
+    if (key === 'pc') {
+      questionElement.classList.add('white-question');
+    } else {
+      questionElement.classList.remove('white-question');
     }
   }
 
@@ -311,12 +337,12 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleBook.style.display = (roomId === "lab") ? "block" : "none";
     puzzleRadio.style.display = (roomId === "lab") ? "block" : "none";
     puzzleTransparent.style.display = (roomId === "lab") ? "block" : "none";
-
     puzzleSafe.style.display = (roomId === "storage") ? "block" : "none";
     puzzleManybooks.style.display = (roomId === "lobby") ? "block" : "none";
 
-
-
+    puzzleClock.style.display = (roomId === "corner") ? "block" : "none";
+    puzzlePapers.style.display = (roomId === "corner") ? "block" : "none";
+    puzzlePC.style.display = (roomId === "corner") ? "block" : "none";
   }
 
 
