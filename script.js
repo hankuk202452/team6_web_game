@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     radio: {
       type: "image",
-      image: "files/computerfull.png"
+      image: "files/employeecard.png"
     },
     transparent: {
       type: "image",
