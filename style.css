@@ -124,6 +124,17 @@ body, html {
   transform: scale(0.5); 
 }
 
+#puzzle-papers {
+  grid-row: 4;
+  grid-column: 4;
+  transform: scale(0.3); 
+}
+
+#puzzle-pc {
+  grid-row: 5;
+  grid-column: 6;
+}
+
 
 .arrow { /* 화살표 기본 설정 */
   position: absolute;
@@ -248,4 +259,8 @@ body, html {
   background-color: rgba(0, 0, 0, 0.95);
   flex-direction: column;
   font-size: 2em;
+}
+
+.white-question {
+  color: white;
 }
