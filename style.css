@@ -103,7 +103,7 @@ body, html {
 
 #puzzle-safe {
   grid-row: 3;
-  grid-column: 3;
+  grid-column: 2;
   position: inherit;
   left: -10%;
   bottom: -20%;
