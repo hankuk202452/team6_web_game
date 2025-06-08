@@ -29,12 +29,11 @@
       <img id="puzzle-clock" class="puzzle" src="files/clock.png" alt="시계 퍼즐" style="display:none;" />
       <img id="puzzle-papers" class="puzzle" src="files/papers.png" alt="종이 퍼즐" style="display:none;" />
       <img id="puzzle-pc" class="puzzle" src="files/PC.png" alt="태블릿 PC 퍼즐" style="display:none;" />
+ 
+      !-- ✅ 새 퍼즐: 메모 (corridor 방) -->
+      <img id="puzzle-memo" class="puzzle" src="files/memo_onthewall.png" alt="벽에 붙은 메모" style="display:none;" />      
 
-      <!-- ✅ 새 퍼즐: 메모 (corridor 방) -->
-      <img id="puzzle-memo" class="puzzle" src="files/memo_onthewall.png" alt="벽에 붙은 메모" style="display:none;" />
-
-      <!-- ✅ 새 퍼즐: 메모 (corridor 방) -->
-  <img id="puzzle-memo" class="puzzle" src="files/memo_onthewall.png" alt="벽에 붙은 메모" style="display:none;" /><!-- 방향 화살표 -->
+      <!-- 방향 화살표 -->
       <div id="arrow-up" class="arrow">▲</div>
       <div id="arrow-left" class="arrow">◀</div>
       <div id="arrow-right" class="arrow">▶</div>

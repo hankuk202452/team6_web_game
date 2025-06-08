@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const puzzleBook = document.getElementById("puzzle-book");
   const puzzleRadio = document.getElementById("puzzle-radio");
   const puzzleTransparent = document.getElementById("puzzle-transparent");
+  const puzzleMemo = document.getElementById("puzzle-memo");
   const puzzleSafe = document.getElementById("puzzle-safe");
   const puzzleManybooks = document.getElementById("puzzle-manybooks");
 
@@ -142,7 +143,13 @@ document.addEventListener("DOMContentLoaded", () => {
     transparent: {
       type: "image",
       image: "files/startscreen.png"
-
+    },
+    memo: {
+      question: "기억 조작 코드 해독\n비밀번호는?",
+      image: "files/memo_front.png",
+      answer: "2025",
+      success: "정답입니다! 문이 열리는 소리가 들립니다.",
+      answered: false
 
     // 추가 퍼즐도 여기에 계속 넣기
     },
@@ -195,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
   puzzleTransparent.addEventListener("click", () => {
     triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
   });
+  puzzleMemo.addEventListener("click", () => openPuzzle("memo"));
   puzzleSafe.addEventListener("click", () => openPuzzle("safe"));
   puzzleManybooks.addEventListener("click", () => openPuzzle("manybooks"));
 
@@ -344,6 +352,8 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleClock.style.display = (roomId === "corner") ? "block" : "none";
     puzzlePapers.style.display = (roomId === "corner") ? "block" : "none";
     puzzlePC.style.display = (roomId === "corner") ? "block" : "none";
+
+    puzzleMemo.style.display = (roomId === "corridor") ? "block" : "none";
   }
 
 

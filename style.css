@@ -135,6 +135,12 @@ body, html {
   grid-column: 6;
 }
 
+/* corridor 퍼즐 */
+#puzzle-memo {
+  grid-row: 3;
+  grid-column: 2;
+}
+
 
 .arrow { /* 화살표 기본 설정 */
   position: absolute;
