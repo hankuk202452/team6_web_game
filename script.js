@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
       success: "정답입니다! 컴퓨터는 똑똑하죠!",
       answered: false
     },
-    book: {
+    book2: {
       question: "\"GTLZM\"이 시저 암호로 오른쪽으로 1칸 밀린 것이라면?",
       image: " ",
       answer: "HUMAN",
