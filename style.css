@@ -141,6 +141,16 @@ body, html {
   grid-column: 2;
 }
 
+#puzzle-wrap-paper {
+  grid-row: 5;
+  grid-column: 4;
+}
+
+#puzzle-board-tilt {
+  grid-row: 4;
+  grid-column: 6;
+}
+
 
 .arrow { /* 화살표 기본 설정 */
   position: absolute;

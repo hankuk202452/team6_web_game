@@ -116,6 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const puzzleMemo = document.getElementById("puzzle-memo");
   const puzzleSafe = document.getElementById("puzzle-safe");
   const puzzleManybooks = document.getElementById("puzzle-manybooks");
+  const puzzleWrapPaper = document.getElementById("puzzle-wrap-paper");
+  const puzzleBoardTilt = document.getElementById("puzzle-board-tilt");
+
 
   const puzzleClock = document.getElementById("puzzle-clock");
   const puzzlePapers = document.getElementById("puzzle-papers");
@@ -145,10 +148,21 @@ document.addEventListener("DOMContentLoaded", () => {
       image: "files/startscreen.png"
     },
     memo: {
-      question: "기억 조작 코드 해독\n비밀번호는?",
+      question: "비밀번호는?",
       image: "files/memo_front.png",
       answer: "2025",
-      success: "정답입니다! 문이 열리는 소리가 들립니다.",
+      success: "정답입니다!",
+      answered: false
+    },
+    wrapPaper: {
+      type: "image",
+      image: "files/real_asimov.png"
+    },
+    boardTilt: {
+      question: "잘못된 규칙의 번호는? 밑에 떨어진 종이를 보세요.",
+      image: "files/fake_asimov.png",
+      answer: "2",
+      success: "정답입니다!",
       answered: false
 
     // 추가 퍼즐도 여기에 계속 넣기
@@ -209,6 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
   puzzleClock.addEventListener("click", () => openPuzzle("clock"));
   puzzlePapers.addEventListener("click", () => openPuzzle("papers"));
   puzzlePC.addEventListener("click", () => openPuzzle("pc"));
+  puzzleWrapPaper.addEventListener("click", () => openPuzzle("wrapPaper"));
+  puzzleBoardTilt.addEventListener("click", () => openPuzzle("boardTilt"));
 
 
 
@@ -354,7 +370,9 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzlePC.style.display = (roomId === "corner") ? "block" : "none";
 
     puzzleMemo.style.display = (roomId === "corridor") ? "block" : "none";
-  }
+    puzzleWrapPaper.style.display = (roomId === "corridor") ? "block" : "none";
+    puzzleBoardTilt.style.display = (roomId === "corridor") ? "block" : "none";
+}
 
 
 
