@@ -201,7 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
       answer: "13",
       success: "인간은 보이지 않는 건 모릅니다.",
       answered: false
-    }
 
 
     // 추가 퍼즐도 여기에 계속 넣기
