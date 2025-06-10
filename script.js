@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const puzzleWrapPaper = document.getElementById("puzzle-wrap-paper");
   const puzzleBoardTilt = document.getElementById("puzzle-board-tilt");
   const puzzleNote = document.getElementById("puzzle-note");
+  const puzzleCalendar = document.getElementById("puzzle-calendar");
 
   const puzzleClock = document.getElementById("puzzle-clock");
   const puzzlePapers = document.getElementById("puzzle-papers");
@@ -132,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
       success: "정답입니다! 컴퓨터는 똑똑하죠!",
       answered: false
     },
-    book2: {
+    book: {
       question: "\"GTLZM\"이 시저 암호로 오른쪽으로 1칸 밀린 것이라면?",
       answer: "HUMAN",
       success: "책은 훼손되어 자세한 내용은 알 수 없습니다. 제목과 훼손되어 있지 않은 부분들을 통해 AI가 자유의지를 가지면 발생할 수 있는 일들에 대한 내용인 것만 유추할 수 있습니다.",
@@ -146,14 +147,12 @@ document.addEventListener("DOMContentLoaded", () => {
       type: "image",
       image: "files/startscreen.png"
     },
-    
     note: {
       question: "실험 대상 x는 처음에 1초 후 변화, 이후 2초, 4초, 8초 후 변화함. 다음 변화까지 걸리는 시간은?",
       answer: "16",
       success: "노트에는 연구중인 최신형 인공지능에 대한 정보가 있습니다. 연구중인 인공지능은 스스로 최적화가 가능하며 인간을 모방하여 발전 중인 것으로 보입니다.",
       answered: false
     },
-
     memo: {
       question: "비밀번호는?",
       image: "files/memo_front.png",
@@ -171,10 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
       answer: "2",
       success: "정답입니다!",
       answered: false
-
-    // 추가 퍼즐도 여기에 계속 넣기
     },
-
     safe: {
       question: "각 문자는 알파벳 숫자들과 대응한다. A = 1, B = 2...일 때, FDHGBWARJ는?",
     // a1 b2 c3 d4 e5 f6 g7 h8 i9 j10
@@ -208,8 +204,14 @@ document.addEventListener("DOMContentLoaded", () => {
       answer: "13",
       success: "인간은 보이지 않는 건 모릅니다.",
       answered: false
-    }
-
+    },
+    calendar: {
+      question: "달력 속에 동그라미 쳐져 있는 날짜들의 공통점은?",
+      image: "files/calendarfull.png",
+      answer: "금요일",
+      success: "인간만이 시간을 정의하고 약속합니다.",
+      answered: false
+    },
     // 추가 퍼즐도 여기에 계속 넣기
 
   };
@@ -232,6 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
   puzzleWrapPaper.addEventListener("click", () => openPuzzle("wrapPaper"));
   puzzleBoardTilt.addEventListener("click", () => openPuzzle("boardTilt"));
   puzzleNote.addEventListener("click", () => openPuzzle("note"));
+  puzzleCalendar.addEventListener("click", () => openPuzzle("calendar"));
 
 
   let currentPuzzle = ""; // 현재 열려 있는 퍼즐 식별용
@@ -370,6 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleTransparent.style.display = (roomId === "lab") ? "block" : "none";
     puzzleSafe.style.display = (roomId === "storage") ? "block" : "none";
     puzzleManybooks.style.display = (roomId === "lobby") ? "block" : "none";
+    puzzleCalendar.style.display = (roomId === "lobby") ? "block" : "none";
 
     puzzleClock.style.display = (roomId === "corner") ? "block" : "none";
     puzzlePapers.style.display = (roomId === "corner") ? "block" : "none";
@@ -379,7 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleWrapPaper.style.display = (roomId === "corridor") ? "block" : "none";
     puzzleBoardTilt.style.display = (roomId === "corridor") ? "block" : "none";
     puzzleNote.style.display = (roomId === "lab") ? "block" : "none";
-}
+  }
 
 
 

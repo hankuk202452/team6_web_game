@@ -156,6 +156,12 @@ body, html {
   grid-column: 6;
 }
 
+#puzzle-calendar {
+  grid-row: 3;
+  grid-column: 5;
+}
+
+
 
 .arrow { /* 화살표 기본 설정 */
   position: absolute;
