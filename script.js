@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     transparent: {
       type: "image",
-      image: "files/startscreen.png"
+      image: "files/transparent.png"
     },
     note: {
       question: "실험 대상 x는 처음에 1초 후 변화, 이후 2초, 4초, 8초 후 변화함. 다음 변화까지 걸리는 시간은?",
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
       question: "비밀번호는?",
       image: "files/memo_front.png",
       answer: "2025",
-      success: "정답입니다!",
+      success: "올해의 절반이 지났습니다. 그렇죠?",
       answered: false
     },
     wrapPaper: {
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       question: "잘못된 규칙의 번호는? 밑에 떨어진 종이를 보세요.",
       image: "files/fake_asimov.png",
       answer: "2",
-      success: "정답입니다!",
+      success: "정답입니다! 잘 아시네요!",
       answered: false
     },
     safe: {
@@ -306,8 +306,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       userAnswer.disabled = true;       // 정답 맞춘 후 입력창 잠금
       checkAnswerBtn.disabled = true;   // 버튼 비활성화
+      checkAllPuzzlesSolved();
     } else {
-      resultMessage.textContent = "틀렸습니다. 다시 시도해보세요!"; // 오답 시
+      resultMessage.textContent = "틀렸습니다. 다시 시도해봅시다."; // 오답 시
     }
   });
 
@@ -348,10 +349,73 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 메인 화면 버튼들 복원
     howToPlayBtn.style.display = "inline-block";
+
+    // 최종 질문 입력창 초기화
+    finalAnswer.value = "";
+    finalResultMessage.textContent = "";
+    finalQuestionModal.style.display = "none";
+
   }
 
 
+  // 최종 질문
+  const finalQuestionModal = document.getElementById("final-question-modal");
+  const finalAnswer = document.getElementById("finalAnswer");
+  const submitFinalAnswerBtn = document.getElementById("submitFinalAnswerBtn");
+  const finalResultMessage = document.getElementById("finalResultMessage");
 
+  const noticeBanner = document.getElementById("notice-banner");
+
+
+  function checkAllPuzzlesSolved() {
+    const allSolved = Object.values(puzzles).every(puzzle => {
+      if (puzzle.type === "image") return true;
+      return puzzle.answered === true;
+    });
+
+    if (allSolved) {
+        // 퍼즐 모달 닫기
+      setTimeout(() => {
+        puzzleModal.style.display = "none";
+      }, 4000);
+
+      // 4초 후 알림 배너 표시
+      setTimeout(() => {
+        noticeBanner.style.display = "block";
+      }, 4000);
+
+      // 약간의 딜레이 후 최종 질문 모달 띄우기
+      setTimeout(() => {
+        noticeBanner.style.display = "none";
+        showFinalQuestion();
+      }, 9000); // 9초 딜레이
+    }
+  }
+
+  function showFinalQuestion() {
+    gameScreen.style.display = "none";
+    finalQuestionModal.style.display = "flex";
+  }
+
+  submitFinalAnswerBtn.addEventListener("click", () => {
+    const input = finalAnswer.value.trim();
+
+    if (input === "") {
+      finalResultMessage.textContent = "무언가를 입력하세요.";
+      return;
+    }
+
+    // 원하는 정답을 비교할 수 있음
+    if (input.toUpperCase() === "인간") {
+      // 최종 탈출 화면으로 전환
+      finalResultMessage.textContent = "그렇습니다. 당신은 인간입니다. 탈출을 축하합니다.";
+      setTimeout(() => {
+        showFinalEscapeScreen();
+      }, 2000);
+    } else {
+      finalResultMessage.textContent = `"${input}"... 흥미롭군요. 당신은 --이 아니던가요?`;
+    }
+  });
 
 
   function updateRoom(roomId) {
@@ -387,10 +451,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-
-
   arrowUp.addEventListener("click", () => {
     const nextRoom = rooms[currentRoomId].up;
     if (nextRoom) updateRoom(nextRoom);
@@ -407,4 +467,50 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextRoom = rooms[currentRoomId].right;
     if (nextRoom) updateRoom(nextRoom);
   });
+
+
+
+
+  // 최종 탈출 화면 모달 요소
+  const finalEscapeScreen = document.getElementById("final-escape-screen");
+  const returnToMainBtn = document.getElementById("returnToMainBtn");
+
+  const viewCreatorBtn = document.getElementById("viewCreatorBtn");
+  const viewStoryBtn = document.getElementById("viewStoryBtn");
+
+  const escapeImageModal = document.getElementById("escape-image-modal");
+  const escapeImage = document.getElementById("escape-image");
+
+  // 버튼 동작
+  viewCreatorBtn.addEventListener("click", () => {
+    escapeImage.src = "files/creator.png";
+    escapeImageModal.style.display = "flex";
+  });
+
+  viewStoryBtn.addEventListener("click", () => {
+    escapeImage.src = "files/allstory.png";
+    escapeImageModal.style.display = "flex";
+  });
+
+  escapeImageModal.addEventListener("click", (e) => {
+    if (e.target === escapeImageModal) {
+      escapeImageModal.style.display = "none";
+    }
+  });
+
+  // 메인 화면으로 돌아가기
+  returnToMainBtn.addEventListener("click", () => {
+    finalEscapeScreen.style.display = "none";
+    document.getElementById("main-screen").style.display = "flex";
+    resetGame(); // 이미 있는 게임 초기화 함수 호출
+  });
+
+  // 최종 정답 확인 후 이 함수 호출
+  function showFinalEscapeScreen() {
+    document.getElementById("final-question-modal").style.display = "none";
+    finalEscapeScreen.style.display = "flex";
+  }
+
+
+
 });

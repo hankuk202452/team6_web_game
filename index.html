@@ -21,7 +21,7 @@
       <!-- 퍼즐 요소 -->
       <img id="puzzle-computer" class="puzzle" src="files/computer.png" alt="컴퓨터 퍼즐" />
       <img id="puzzle-radio" class="puzzle" src="files/radio.png" alt="라디오 퍼즐" style="display:none;" />
-      <img id="puzzle-transparent" class="puzzle" src="files/trasparent.png" alt="투명 퍼즐" style="display:none;" />
+      <img id="puzzle-transparent" class="puzzle" src="files/transparent.png" alt="투명 퍼즐" style="display:none;" />
       <img id="puzzle-safe" class="puzzle" src="files/safe.png" alt="금고 퍼즐" style="display:none;" />
       <img id="puzzle-manybooks" class="puzzle" src="files/manybooks.png" alt="많은 책들 퍼즐" style="display:none;" />
       
@@ -82,6 +82,41 @@
   <div id="game-over-screen" class="modal" style="display:none;">
     <h1 style="color: white;">GAME OVER</h1>
     <p style="color: white;">아무 키나 눌러 다시 시작하세요</p>
+  </div>
+
+
+
+  <!-- 모든 퍼즐 후 나오는 질문 화면 -->
+  <div id="final-question-modal" class="modal" style="display:none;">
+    <div id="final-question-content">
+      <p class="white-question">당신은 누구입니까?</p>
+      <input type="text" id="finalAnswer" placeholder="당신의 정체를 입력하세요" />
+      <button id="submitFinalAnswerBtn">확인</button>
+      <p id="finalResultMessage"></p>
+    </div>
+  </div>
+
+
+  <!-- 공지 배너 -->
+  <div id="notice-banner">곧 화면이 전환됩니다...</div>
+
+
+  <!-- 최종 탈출 화면 -->
+  <div id="final-escape-screen" class="modal" style="display:none;">
+    <div style="color: rgb(0, 0, 0); text-align: center;">
+      <h1>OO연구소를 '탈출'합니다.</h1>
+      <p>당신은 이제 무엇을 해야 할까요?</p>
+      <div style="margin: 20px;">
+        <button id="viewCreatorBtn">제작자 보기</button>
+        <button id="viewStoryBtn">전체 스토리 보기</button>
+      </div>
+      <button id="returnToMainBtn">메인 화면으로 돌아가기</button>
+    </div>
+  </div>
+
+  <!-- 탈출 이미지 모달 -->
+  <div id="escape-image-modal" class="modal" style="display:none;">
+    <img id="escape-image" src="" alt="탈출 이미지" />
   </div>
 
   <script src="script.js"></script>
