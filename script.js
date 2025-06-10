@@ -212,7 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
       success: "인간만이 시간을 정의하고 약속합니다.",
       answered: false
     },
-
     // 추가 퍼즐도 여기에 계속 넣기
 
   };
@@ -220,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 퍼즐 클릭 이벤트
   puzzleComputer.addEventListener("click", () => openPuzzle("computer"));
-  puzzleBook2.addEventListener("click", () => openPuzzle("book"));
+  puzzleBook.addEventListener("click", () => openPuzzle("book"));
   puzzleRadio.addEventListener("click", () => openPuzzle("radio"));
   puzzleTransparent.addEventListener("click", () => {
     triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
@@ -369,7 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //퍼즐 요소 화면 위치
     puzzleComputer.style.display = (roomId === "labroom") ? "block" : "none";
-    puzzleBook2.style.display = (roomId === "lab") ? "block" : "none";
+    puzzleBook.style.display = (roomId === "lab") ? "block" : "none";
     puzzleRadio.style.display = (roomId === "lab") ? "block" : "none";
     puzzleTransparent.style.display = (roomId === "lab") ? "block" : "none";
     puzzleSafe.style.display = (roomId === "storage") ? "block" : "none";
@@ -384,7 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleWrapPaper.style.display = (roomId === "corridor") ? "block" : "none";
     puzzleBoardTilt.style.display = (roomId === "corridor") ? "block" : "none";
     puzzleNote.style.display = (roomId === "lab") ? "block" : "none";
-}
+  }
 
 
 
