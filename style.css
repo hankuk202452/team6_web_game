@@ -86,7 +86,7 @@ body, html {
   grid-column: 4;
 }
 
-#puzzle-book { /* 퍼즐 요소 : 책 */
+#puzzle-book2 { /* 퍼즐 요소 : 책 */
   grid-row: 3;
   grid-column: 4;
 }
@@ -103,7 +103,7 @@ body, html {
 
 #puzzle-safe {
   grid-row: 3;
-  grid-column: 3;
+  grid-column: 2;
   position: inherit;
   left: -10%;
   bottom: -20%;
