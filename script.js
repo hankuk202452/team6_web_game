@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const puzzleManybooks = document.getElementById("puzzle-manybooks");
   const puzzleWrapPaper = document.getElementById("puzzle-wrap-paper");
   const puzzleBoardTilt = document.getElementById("puzzle-board-tilt");
-
+  const puzzleNote = document.getElementById("puzzle-note");
 
   const puzzleClock = document.getElementById("puzzle-clock");
   const puzzlePapers = document.getElementById("puzzle-papers");
@@ -134,7 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     book2: {
       question: "\"GTLZM\"이 시저 암호로 오른쪽으로 1칸 밀린 것이라면?",
-      image: " ",
       answer: "HUMAN",
       success: "책은 훼손되어 자세한 내용은 알 수 없습니다. 제목과 훼손되어 있지 않은 부분들을 통해 AI가 자유의지를 가지면 발생할 수 있는 일들에 대한 내용인 것만 유추할 수 있습니다.",
       answered: false
@@ -147,6 +146,14 @@ document.addEventListener("DOMContentLoaded", () => {
       type: "image",
       image: "files/startscreen.png"
     },
+    
+    note: {
+      question: "실험 대상 x는 처음에 1초 후 변화, 이후 2초, 4초, 8초 후 변화함. 다음 변화까지 걸리는 시간은?",
+      answer: "16",
+      success: "노트에는 연구중인 최신형 인공지능에 대한 정보가 있습니다. 연구중인 인공지능은 스스로 최적화가 가능하며 인간을 모방하여 발전 중인 것으로 보입니다.",
+      answered: false
+    },
+
     memo: {
       question: "비밀번호는?",
       image: "files/memo_front.png",
@@ -210,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 퍼즐 클릭 이벤트
   puzzleComputer.addEventListener("click", () => openPuzzle("computer"));
-  puzzleBook.addEventListener("click", () => openPuzzle("book"));
+  puzzleBook2.addEventListener("click", () => openPuzzle("book"));
   puzzleRadio.addEventListener("click", () => openPuzzle("radio"));
   puzzleTransparent.addEventListener("click", () => {
     triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
@@ -224,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
   puzzlePC.addEventListener("click", () => openPuzzle("pc"));
   puzzleWrapPaper.addEventListener("click", () => openPuzzle("wrapPaper"));
   puzzleBoardTilt.addEventListener("click", () => openPuzzle("boardTilt"));
-
+  puzzleNote.addEventListener("click", () => openPuzzle("note"));
 
 
   let currentPuzzle = ""; // 현재 열려 있는 퍼즐 식별용
@@ -358,7 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //퍼즐 요소 화면 위치
     puzzleComputer.style.display = (roomId === "labroom") ? "block" : "none";
-    puzzleBook.style.display = (roomId === "lab") ? "block" : "none";
+    puzzleBook2.style.display = (roomId === "lab") ? "block" : "none";
     puzzleRadio.style.display = (roomId === "lab") ? "block" : "none";
     puzzleTransparent.style.display = (roomId === "lab") ? "block" : "none";
     puzzleSafe.style.display = (roomId === "storage") ? "block" : "none";
@@ -371,6 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleMemo.style.display = (roomId === "corridor") ? "block" : "none";
     puzzleWrapPaper.style.display = (roomId === "corridor") ? "block" : "none";
     puzzleBoardTilt.style.display = (roomId === "corridor") ? "block" : "none";
+    puzzleNote.style.display = (roomId === "lab") ? "block" : "none";
 }
 
 
