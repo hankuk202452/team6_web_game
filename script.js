@@ -127,10 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const puzzles = {
     computer: {
-      question: "문제: 컴퓨터가 무엇인가요?",
-      image: "files/computerfull.png",
-      answer: "전자기기",
-      success: "정답입니다! 컴퓨터는 똑똑하죠!",
+      question: "비밀번호를 입력하세요.",
+      image: "files/computerfull2.png",
+      answer: "0013",
+      success: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 이~ 아쉽네. 더 놀고 싶었는데...",
       answered: false
     },
     book: {
