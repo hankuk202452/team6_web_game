@@ -129,8 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
     computer: {
       question: "비밀번호를 입력하세요.",
       image: "files/computerfull2.png",
-      answer: "0013",
-      success: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 이~ 아쉽네. 더 놀고 싶었는데...",
+      answer: "0012",
+      success: "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 아~ 아쉽네. 더 놀고 싶었는데...",
       answered: false
     },
     book: {
