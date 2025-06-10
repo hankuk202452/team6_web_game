@@ -86,7 +86,7 @@ body, html {
   grid-column: 4;
 }
 
-#puzzle-book2 { /* 퍼즐 요소 : 책 */
+#puzzle-book { /* 퍼즐 요소 : 책 */
   grid-row: 3;
   grid-column: 4;
 }
@@ -101,7 +101,7 @@ body, html {
   grid-column: 7;
 }
 
-#puzzle-transparent {
+#puzzle-transparent { /* 퍼즐 요소 : 투명 -> 게임 오버 */
   grid-row: 2;
   grid-column: 4;
 }
