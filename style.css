@@ -281,7 +281,7 @@ body, html {
   font-size: 18px;
 }
 
-
+/* 게임 오버 */
 #game-over-screen {
   background-color: rgba(0, 0, 0, 0.95);
   flex-direction: column;
@@ -291,3 +291,93 @@ body, html {
 .white-question {
   color: white;
 }
+
+/* 최종 질문 */
+#final-question-content {
+  background: white;
+  padding: 50px;
+  border-radius: 10px;
+  width: 40vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#final-question-content p {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+#final-question-content input {
+  padding: 10px;
+  font-size: 16px;
+  width: 80%;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#submitFinalAnswerBtn {
+  padding: 10px 20px;
+  background-color: #4c6baf;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#notice-banner { /* 공지 화면 */
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  z-index: 9999;
+}
+
+
+/* 탈출 화면 */
+#final-escape-screen {
+  background-image: url('files/finalnewsfull.png'); /* 배경 이미지 */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.escape-content {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+}
+
+#returnToMainBtn, #viewCreatorBtn, #viewStoryBtn { /* 탈출 화면 메인으로 돌아가기*/
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #4c6baf;
+  color: white;
+}
+
+/* 탈출 이미지 모달 */
+#escape-image-modal img {
+  max-width: 60vw;
+  max-height: 70vh;
+  border-radius: 10px;
+}
+
+
+
