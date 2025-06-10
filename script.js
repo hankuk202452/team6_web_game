@@ -112,7 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const puzzleComputer = document.getElementById("puzzle-computer");
   const puzzleBook = document.getElementById("puzzle-book");
   const puzzleRadio = document.getElementById("puzzle-radio");
-  const puzzleTransparent = document.getElementById("puzzle-transparent");
   const puzzleMemo = document.getElementById("puzzle-memo");
   const puzzleSafe = document.getElementById("puzzle-safe");
   const puzzleManybooks = document.getElementById("puzzle-manybooks");
@@ -124,6 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const puzzleClock = document.getElementById("puzzle-clock");
   const puzzlePapers = document.getElementById("puzzle-papers");
   const puzzlePC = document.getElementById("puzzle-pc");
+
+  const puzzleTransparent = document.getElementById("puzzle-transparent");
+  const puzzleTransparent2 = document.getElementById("puzzle-transparent2");
+  const puzzleTransparent3 = document.getElementById("puzzle-transparent3");
+  const puzzleTransparent4 = document.getElementById("puzzle-transparent4");
+  const puzzleTransparent5 = document.getElementById("puzzle-transparent5");
+  const puzzleTransparent6 = document.getElementById("puzzle-transparent6");
+
 
   const puzzles = {
     computer: {
@@ -221,9 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
   puzzleComputer.addEventListener("click", () => openPuzzle("computer"));
   puzzleBook.addEventListener("click", () => openPuzzle("book"));
   puzzleRadio.addEventListener("click", () => openPuzzle("radio"));
-  puzzleTransparent.addEventListener("click", () => {
-    triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
-  });
   puzzleMemo.addEventListener("click", () => openPuzzle("memo"));
   puzzleSafe.addEventListener("click", () => openPuzzle("safe"));
   puzzleManybooks.addEventListener("click", () => openPuzzle("manybooks"));
@@ -235,6 +239,29 @@ document.addEventListener("DOMContentLoaded", () => {
   puzzleBoardTilt.addEventListener("click", () => openPuzzle("boardTilt"));
   puzzleNote.addEventListener("click", () => openPuzzle("note"));
   puzzleCalendar.addEventListener("click", () => openPuzzle("calendar"));
+
+  puzzleTransparent.addEventListener("click", () => {
+    triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
+  });
+  puzzleTransparent2.addEventListener("click", () => {
+    triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
+  });
+  puzzleTransparent3.addEventListener("click", () => {
+    triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
+  });
+  puzzleTransparent4.addEventListener("click", () => {
+    triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
+  });
+  puzzleTransparent5.addEventListener("click", () => {
+    triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
+  });
+  puzzleTransparent6.addEventListener("click", () => {
+    triggerGameOver(); // 퍼즐 열지 않고 바로 게임 오버
+  });
+
+
+
+
 
 
   let currentPuzzle = ""; // 현재 열려 있는 퍼즐 식별용
@@ -434,7 +461,6 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleComputer.style.display = (roomId === "labroom") ? "block" : "none";
     puzzleBook.style.display = (roomId === "lab") ? "block" : "none";
     puzzleRadio.style.display = (roomId === "lab") ? "block" : "none";
-    puzzleTransparent.style.display = (roomId === "lab") ? "block" : "none";
     puzzleSafe.style.display = (roomId === "storage") ? "block" : "none";
     puzzleManybooks.style.display = (roomId === "lobby") ? "block" : "none";
     puzzleCalendar.style.display = (roomId === "lobby") ? "block" : "none";
@@ -447,6 +473,15 @@ document.addEventListener("DOMContentLoaded", () => {
     puzzleWrapPaper.style.display = (roomId === "corridor") ? "block" : "none";
     puzzleBoardTilt.style.display = (roomId === "corridor") ? "block" : "none";
     puzzleNote.style.display = (roomId === "lab") ? "block" : "none";
+
+    puzzleTransparent.style.display = (roomId === "labroom") ? "block" : "none";
+    puzzleTransparent2.style.display = (roomId === "lab") ? "block" : "none";
+    puzzleTransparent3.style.display = (roomId === "storage") ? "block" : "none";
+    puzzleTransparent4.style.display = (roomId === "lobby") ? "block" : "none";
+    puzzleTransparent5.style.display = (roomId === "corner") ? "block" : "none";
+    puzzleTransparent6.style.display = (roomId === "corridor") ? "block" : "none";
+
+
   }
 
 
