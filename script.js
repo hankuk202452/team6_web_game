@@ -409,7 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 4초 후 알림 배너 표시
       setTimeout(() => {
         noticeBanner.style.display = "block";
-      }, 4000);
+      }, 3000);
 
       // 약간의 딜레이 후 최종 질문 모달 띄우기
       setTimeout(() => {
@@ -513,8 +513,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const viewCreatorBtn = document.getElementById("viewCreatorBtn");
   const viewStoryBtn = document.getElementById("viewStoryBtn");
 
+  const newspaper = document.getElementById("newspaper-icon");
+
   const escapeImageModal = document.getElementById("escape-image-modal");
   const escapeImage = document.getElementById("escape-image");
+
+  newspaper.addEventListener("click", () => {
+    escapeImage.src = "files/newspaper.png";
+    escapeImageModal.style.display = "flex";
+  });
 
   // 버튼 동작
   viewCreatorBtn.addEventListener("click", () => {

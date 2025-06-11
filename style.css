@@ -157,34 +157,34 @@ body, html {
 }
 
 /* 퍼즐 요소 : 투명 -> 게임 오버 */
-#puzzle-transparent {
-  grid-row: 2;
-  grid-column: 4;
+#puzzle-transparent { /* 좌측측 위 */
+  grid-row: 1;
+  grid-column: 1;
 }
 
-#puzzle-transparent2 {
-  grid-row: 2;
-  grid-column: 6;
-}
-
-#puzzle-transparent3 {
-  grid-row: 2;
-  grid-column: 2;
-}
-
-#puzzle-transparent4 {
-  grid-row: 3;
-  grid-column: 4;
-}
-
-#puzzle-transparent5 {
+#puzzle-transparent2 { /* 우측 아래 */
   grid-row: 5;
-  grid-column: 5;
+  grid-column: 7;
 }
 
-#puzzle-transparent6 {
+#puzzle-transparent3 { /* 가운데 아래*/
+  grid-row: 5;
+  grid-column: 4;
+}
+
+#puzzle-transparent4 { /* 좌측 아래 */
+  grid-row: 5;
+  grid-column: 1;
+}
+
+#puzzle-transparent5 {  /* 우측 가운데 */
   grid-row: 3;
-  grid-column: 3;
+  grid-column: 7;
+}
+
+#puzzle-transparent6 { /* 우측 위 */
+  grid-row: 1;
+  grid-column: 7;
 }
 
 
@@ -372,7 +372,9 @@ body, html {
 
 /* 탈출 화면 */
 #final-escape-screen {
-  background-image: url('files/finalnewsfull.png'); /* 배경 이미지 */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), /* 흰색 반투명 오버레이 */
+    url('files/final.png'); /* 원래의 배경 이미지 */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -386,6 +388,14 @@ body, html {
   border-radius: 15px;
   color: white;
   text-align: center;
+  transform: translateY(-50px);
+}
+
+.final-escape {
+  padding: "all";
+  color: black;
+  text-align: center;
+  transform: translateY(-50px);
 }
 
 #returnToMainBtn, #viewCreatorBtn, #viewStoryBtn { /* 탈출 화면 메인으로 돌아가기*/
@@ -406,5 +416,11 @@ body, html {
   border-radius: 10px;
 }
 
-
-
+#newspaper-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    margin-bottom: 10px; 
+    vertical-align: middle; 
+    margin-right: 10px; 
+}
